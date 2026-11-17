@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ManuFlow - Manufacturing Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+<aside class="sidebar">
+    <h2>ManuFlow</h2>
+    <p>Manufacturing Management</p>
+    <nav>
+        <button class="nav-btn active" data-section="overview" data-title="Overview">Overview</button>
+        <button class="nav-btn" data-section="production" data-title="Production">Production</button>
+        <button class="nav-btn" data-section="inventory" data-title="Inventory">Inventory</button>
+        <button class="nav-btn" data-section="orders" data-title="Orders & Sales">Orders & Sales</button>
+        <button class="nav-btn" data-section="machinery" data-title="Machinery">Machinery</button>
+        <button class="nav-btn" data-section="employees" data-title="Employees">Employees</button>
+        <button class="nav-btn" data-section="payments" data-title="Payments">Payments</button>
+        <button class="nav-btn" data-section="wastage" data-title="Damage & Wastage">Damage & Wastage</button>
+        <button class="nav-btn" data-section="alerts" data-title="Alerts">Alerts</button>
+        <button class="nav-btn" data-section="sqs" data-title="SQS Queue Monitor">SQS Queue Monitor</button>
+    </nav>
+</aside>
+
+<main>
+<header>
+    <div>
+        <h1 id="pageTitle">Manufacturing Overview</h1>
+        <p class="subtitle">Monitor and manage your manufacturing operations</p>
+    </div>
+    <div class="muted">Today: <span id="todayDate">--</span></div>
+</header>
+
+<section class="view active" id="overview">
+    <div class="stats-grid">
+        <div class="stat-card"><p>Total Production</p><strong id="totalProduction">0</strong></div>
+        <div class="stat-card"><p>Active Orders</p><strong id="activeOrders">0</strong></div>
+        <div class="stat-card"><p>Inventory Units</p><strong id="inventoryCount">0</strong></div>
+        <div class="stat-card"><p>Pending Alerts</p><strong id="pendingAlerts">0</strong></div>
+    </div>
+    <div class="panel">
+        <h2>Production Summary</h2>
+        <div id="productionChart"></div>
+    </div>
+    <div class="panel">
+        <h2>Machinery Status</h2>
+        <div class="machine-summary"></div>
+    </div>
+    <div class="panel">
+        <h2>Recent Orders</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Order ID</th><th>Product</th><th>Quantity</th><th>Priority</th><th>Status</th></tr></thead>
+            <tbody id="recentOrders"></tbody>
+        </table>
+        </div>
+    </div>
+</section>
+
+<section class="view" id="production">
+    <div class="panel">
+        <div class="panel-header"><h2>Production Records</h2><button class="primary-btn" id="addProduction">+ Add Production</button></div>
+        <div class="table-wrap"><table><thead></thead><tbody id="productionTable"></tbody></table></div>
+    </div>
+</section>
+
+<section class="view" id="inventory">
+    <div class="panel">
+        <div class="panel-header"><h2>Inventory Management</h2><div><input class="search-input" id="inventorySearch" placeholder="Search inventory..."><button class="primary-btn" id="addInventory">+ Add Item</button></div></div>
+        <div class="table-wrap"><table><thead></thead><tbody id="inventoryTable"></tbody></table></div>
+    </div>
+</section>
+
+<section class="view" id="orders">
+    <div class="panel">
+        <div class="panel-header"><h2>Orders & Sales</h2><button class="primary-btn" id="addOrder">+ Add Order</button></div>
+        <div class="table-wrap"><table><thead></thead><tbody id="ordersTable"></tbody></table></div>
+    </div>
+</section>
+
+<section class="view" id="machinery">
+    <div class="panel">
+        <div class="panel-header"><h2>Machinery Management</h2><button class="primary-btn" id="addMachine">+ Add Machine</button></div>
+        <div class="table-wrap"><table><thead></thead><tbody id="machineryTable"></tbody></table></div>
+    </div>
+</section>
+
+<section class="view" id="employees">
+    <div class="panel">
+        <div class="panel-header"><h2>Employees</h2><button class="primary-btn" id="addEmployee">+ Add Employee</button></div>
+        <div class="table-wrap"><table><thead></thead><tbody id="employeesTable"></tbody></table></div>
+    </div>
+</section>
+
+<section class="view" id="payments">
+    <div class="panel">
+        <div class="panel-header"><h2>Payments</h2><button class="primary-btn" id="addPayment">+ Add Payment</button></div>
+        <div class="table-wrap"><table><thead></thead><tbody id="paymentsTable"></tbody></table></div>
+    </div>
+</section>
+
+<section class="view" id="wastage">
+    <div class="panel">
+        <div class="panel-header"><h2>Damage & Wastage</h2><button class="primary-btn" id="addWastage">+ Add Wastage</button></div>
+        <div class="table-wrap"><table><thead></thead><tbody id="wastageTable"></tbody></table></div>
+    </div>
+</section>
+
+<section class="view" id="alerts">
+    <div class="panel">
+        <h2>System Alerts</h2>
+        <div id="alertsList"></div>
+    </div>
+</section>
+
+<section class="view" id="sqs">
+    <div class="panel">
+        <h2>AWS SQS Queue Monitor</h2>
+        <p class="muted">SQS integration is not connected yet. The college AWS account currently denies SQS permissions. This section is a placeholder, not a live queue monitor.</p>
+    </div>
+</section>
+
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
